@@ -1,47 +1,19 @@
-const storageKey = "theme";
-const root = document.documentElement;
-
-function readStoredTheme() {
-  try {
-    return localStorage.getItem(storageKey);
-  } catch {
-    return null;
-  }
-}
-
-function storeTheme(value) {
-  try {
-    localStorage.setItem(storageKey, value);
-  } catch {
+(function () {
+  var root = document.documentElement;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".reveal");
+  if (reduced || !("IntersectionObserver" in window)) {
+    items.forEach(function (el) { el.classList.add("in"); });
     return;
   }
-}
-
-function applyTheme(value) {
-  if (value) root.dataset.theme = value;
-}
-
-function currentTheme() {
-  if (root.dataset.theme) return root.dataset.theme;
-  return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-applyTheme(readStoredTheme());
-
-document.getElementById("theme").addEventListener("click", () => {
-  const next = currentTheme() === "dark" ? "light" : "dark";
-  applyTheme(next);
-  storeTheme(next);
-});
-
-const chips = document.querySelectorAll(".chip");
-const cards = document.querySelectorAll(".card");
-
-function showType(type) {
-  cards.forEach((card) => {
-    card.hidden = type !== "all" && card.dataset.type !== type;
-  });
-  chips.forEach((chip) => chip.setAttribute("aria-pressed", String(chip.dataset.filter === type)));
-}
-
-chips.forEach((chip) => chip.addEventListener("click", () => showType(chip.dataset.filter)));
+  root.classList.add("motion");
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  items.forEach(function (el) { observer.observe(el); });
+})();

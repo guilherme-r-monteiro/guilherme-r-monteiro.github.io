@@ -1,0 +1,85 @@
+[
+  {
+    "org": "ALTAVE",
+    "place": "São José dos Campos, Brazil",
+    "title": "Applied ML Engineer, Computer Vision and Platform",
+    "period": "Jun 2024 - Present",
+    "summary": "Senior IC on the AI team, owning product roadmap and client interface at a safety-critical monitoring company.",
+    "engagements": [
+      {
+        "name": "NABORS, drilling",
+        "role": "Forward Deployed Engineer",
+        "period": "5 months on site abroad",
+        "points": [
+          "Led client interaction with the operations teams and owned delivery end to end: product design, development, architecture, AI and hardware installation.",
+          "Designed an after-action review product for rig operations from requirements to Figma, then built its frontend and backend.",
+          "Drove the target architecture of the vision platform: site-scoped rules, an edge runtime that closes the loop with no cloud link, and a cloud control plane. 43 requirements traced to design.",
+          "Fine-tuned detection models for PPE monitoring and wired alert emission into the platform.",
+          "Installed and commissioned cameras, recorders and edge boxes at the rig."
+        ]
+      },
+      {
+        "name": "SATORO, maritime",
+        "role": "Project Manager",
+        "period": "Since Jun 2024",
+        "points": [
+          "Ran roadmap and delivery for a vessel-based monitoring line: onboard detection, a bridge application for the crew, and shore-side data services.",
+          "Delivered person and vessel detection running live inference on onboard video."
+        ]
+      },
+      {
+        "name": "Core engineering",
+        "role": "Architecture and delivery",
+        "period": "",
+        "points": [
+          "Led the architecture of a real-time GPU vision pipeline on DeepStream and TensorRT. The Legolas edge runtime adds about 31 MB per extra FHD camera.",
+          "Deployed LLM-based validation of safety-equipment alerts that cut false positives by over 95%.",
+          "Delivered an end-to-end oil-spill crisis-management platform: instance segmentation, object detection and an operations interface on AWS.",
+          "Analysed 67,000 railway alert thumbnails: 21 of 119 camera scenes produced 92% of false alerts.",
+          "Onboarded 10+ engineers and run a multi-agent engineering workflow daily."
+        ]
+      }
+    ]
+  },
+  {
+    "org": "Independent",
+    "place": "Remote",
+    "title": "Freelance Backend Engineer",
+    "period": "2026, 4 months",
+    "summary": "",
+    "engagements": [
+      {
+        "name": "Electoral-analytics platform",
+        "role": "",
+        "period": "",
+        "points": ["Built the whole backend: FastAPI over public electoral and census data in BigQuery, PostgreSQL, JWT authentication, Docker and GCP deployment. About 175 commits."]
+      }
+    ]
+  },
+  {
+    "org": "Braskem",
+    "place": "São Paulo, Brazil",
+    "title": "Product Analyst, then People Analytics Intern",
+    "period": "2022 - 2024",
+    "summary": "",
+    "engagements": [
+      {
+        "name": "People and HCM product",
+        "role": "",
+        "period": "",
+        "points": [
+          "Prioritised system fixes from ticket trends and cut ticket volume by 10% in a year.",
+          "Automated HCM data distribution from a week of manual work to immediate, with LGPD-compliant access control."
+        ]
+      }
+    ]
+  },
+  {
+    "org": "Digital Social and Kinea Investimentos",
+    "place": "São Paulo, Brazil",
+    "title": "Business Intelligence Analyst and Commercial Department",
+    "period": "2021 - 2023",
+    "summary": "KPI reports on client return on investment, and investor relations for a fund manager.",
+    "engagements": []
+  }
+]
