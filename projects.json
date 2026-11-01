@@ -204,5 +204,113 @@
   "repo": null,
   "status": "company",
   "headline": "92% from 21 of 119 scenes"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "cv-label-audit",
+  "tags": [
+   "data quality",
+   "YOLOv8",
+   "SQLite",
+   "evaluation"
+  ],
+  "headline": "89% of injected label errors found",
+  "problem": "Detection datasets carry label errors, and reviewing every image is slow.",
+  "built": "A detector-based audit that flags missing boxes, wrong classes, loose boxes and unsupported boxes, stores findings in SQLite, and ranks images for review with one SQL query. Scored against errors injected with a fixed seed.",
+  "result": "Recall 0.89 on auditable injected errors at the lowest threshold, precision 0.23. The top 10 review queue holds an injected error in 72% of images against 31% at random.",
+  "limits": "COCO128 only. The detector saw these images in training, so recall is optimistic. Deleted boxes are found only 30% of the time. The audit was revised once after a first run raised too many flags.",
+  "repo": "https://github.com/guilherme-r-monteiro/cv-label-audit",
+  "status": "private",
+  "target": "Computer vision engineering roles"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "cv-training-lab",
+  "tags": [
+   "PyTorch",
+   "CIFAR-10",
+   "model registry",
+   "Grad-CAM"
+  ],
+  "headline": "90.4% test accuracy",
+  "problem": "A training workflow needs architecture choice, tuning, versioning, explanation and monitoring, not only a model.",
+  "built": "A reproducible CIFAR-10 pipeline: three architectures, random hyperparameter search, a file registry with checksums and promotion rules, Grad-CAM with a deletion test, and a drift monitor.",
+  "result": "Test accuracy 0.706 (small CNN), 0.837 (ResNet-18 scratch), 0.904 (ResNet-18 pretrained). Search lifted the small CNN from 0.656 to 0.694. The drift monitor had no false alarms and flagged all four corruptions at 0.96 or above.",
+  "limits": "One seed per row, 20,000 training images, one GPU. The Grad-CAM check is informative for the scratch model and not for the pretrained one. A first deletion test used an unfair baseline and was replaced.",
+  "repo": "https://github.com/guilherme-r-monteiro/cv-training-lab",
+  "status": "private",
+  "target": "Computer vision engineering roles"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "lidar-camera-fusion",
+  "tags": [
+   "sensor fusion",
+   "KITTI",
+   "tracking"
+  ],
+  "headline": "0.35 m vs 2.45 m error",
+  "problem": "A camera alone gives a poor distance to detected objects.",
+  "built": "LiDAR points projected into the image and fused with YOLOv8n detections to estimate object position, plus a nearest-neighbour tracker, scored against KITTI 3D tracklets.",
+  "result": "Median distance error 0.35 m with fusion against 2.45 m camera only, and 92% of estimates within 10% against 50%.",
+  "limits": "One KITTI drive of 108 frames. The tracker is weak (23 identity switches on 14 tracks). No radar, no 3D detector, no latency measurement.",
+  "repo": "https://github.com/guilherme-r-monteiro/lidar-camera-fusion",
+  "status": "private",
+  "target": "Perception and autonomy roles"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "edge-inference-bench",
+  "tags": [
+   "C++",
+   "llama.cpp",
+   "CUDA",
+   "benchmark"
+  ],
+  "headline": "266 tok/s GPU, 78 CPU",
+  "problem": "Running a language model locally needs known load time, memory and speed under real settings.",
+  "built": "A C++17 harness over llama.cpp that measures load time, resident memory, prefill and decode speed, thread scaling, quantisation, load mode and long-session behaviour, on CPU and CUDA builds.",
+  "result": "Decode speed stops scaling at 4 threads. Q8_0 decodes 12 to 15% slower than Q4_K_M. On the CPU, decode speed halves between 500 and 3,500 tokens of context. On the GPU it falls 7%.",
+  "limits": "One 0.5 B model, one machine, warm page cache. No changes to llama.cpp itself and no Vulkan or Metal build.",
+  "repo": "https://github.com/guilherme-r-monteiro/edge-inference-bench",
+  "status": "private",
+  "target": "Inference engineering roles"
+ },
+ {
+  "type": "Data and backend",
+  "title": "ml-feature-serving",
+  "tags": [
+   "feature store",
+   "FastAPI",
+   "drift",
+   "bandits"
+  ],
+  "headline": "AUC 0.72, not 0.94",
+  "problem": "Models lose performance in production when serving features differ from training features.",
+  "built": "One feature function shared by training and serving with an as-of rule, an online store, a scoring API that logs model and feature versions, population-stability drift checks, and Thompson-sampling traffic routing, on public credit data.",
+  "result": "Leaky features lift AUC from 0.72 to 0.94. Offline and online features agree to 0.0. Routing cut regret from 260 to 18 over 5,000 replayed requests.",
+  "limits": "Monthly data, SQLite instead of managed stores, replayed labels instead of live traffic. The drift monitor missed a 1.5 times shift and caught 2 times.",
+  "repo": "https://github.com/guilherme-r-monteiro/ml-feature-serving",
+  "status": "private",
+  "target": "ML platform roles"
+ },
+ {
+  "type": "Agentic and MCP",
+  "title": "agent-retrieval-service",
+  "tags": [
+   "MCP",
+   "FastAPI",
+   "SSE",
+   "Terraform",
+   "hybrid retrieval"
+  ],
+  "headline": "nDCG@10 0.688",
+  "problem": "An agent needs a retrieval tool that is measured, streamable and deployable.",
+  "built": "BM25, dense and hybrid retrieval over SciFact, exposed as an MCP tool and a Server-Sent Events API, with a Dockerfile, a CI workflow and validated Terraform for Cloud Run.",
+  "result": "Hybrid nDCG@10 0.688 against 0.666 for BM25 and 0.648 for dense. The BM25 score matches the published value.",
+  "limits": "No language model in the loop. Terraform was validated and never applied. No authentication.",
+  "repo": "https://github.com/guilherme-r-monteiro/agent-retrieval-service",
+  "status": "private",
+  "target": "Agentic AI engineering roles"
  }
 ]
