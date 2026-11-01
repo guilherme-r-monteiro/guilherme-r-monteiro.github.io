@@ -17,4 +17,4 @@
 @keyframes drift{from{transform:translate(0,0)}to{transform:translate(-26px,16px)}}
 @keyframes scan{from{top:0}to{top:100%}}
 @keyframes blink{50%{opacity:0}}
-@media (max-width:640px){.hero-art i{opacity:.35}}
+@media (max-width:640px){.hero-art i{opacity:.15}}
