@@ -15,7 +15,7 @@ IMAGE_TITLES = {
     "ml-feature-serving": "ml-feature-serving",
     "agent-retrieval-service": "agent-retrieval-service",
 }
-PHOTO_SOURCE = Path.home() / "Downloads" / "profile-photo.jpg"
+PHOTO_SOURCE = Path.home() / "profile-foto.jpg"
 PHOTO_TARGET = ROOT / "assets" / "profile.webp"
 PHOTO_MAX_SIZE = 400
 ABOUT_TEXT = (
