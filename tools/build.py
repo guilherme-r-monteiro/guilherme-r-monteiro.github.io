@@ -34,12 +34,12 @@ NUMBERS = (
     ("92%", "of railway false alerts traced to 21 of 119 scenes"),
 )
 ABOUT_TEXT = (
-    "I am an applied ML engineer who works close to the client. At ALTAVE I was Forward Deployed Engineer for a drilling client, I manage a maritime monitoring project, and I led the architecture of a real-time GPU vision pipeline.",
-    "I like to own a product end to end, from Figma and frontend to backend, AI models and hardware installation.",
-    "Today I focus on agentic systems and computer vision, and I run a multi-agent engineering workflow every day.",
+    "I am a forward deployed engineer who owns solutions end to end, from the client problem to production.",
+    "At ALTAVE I worked on site with a drilling client as Forward Deployed Engineer, I manage a maritime monitoring project, and I led the architecture of a real-time GPU vision pipeline.",
+    "I design the product, build the models and services, and ship them, with the client in the loop at every step. Today I focus on computer vision and agentic systems.",
 )
 FACTS = (
-    ("Location", "Santos, São Paulo, Brazil (remote)"),
+    ("Location", "São Paulo, SP, Brazil (remote)"),
     ("Languages", "Portuguese (native), English (native or bilingual)"),
     ("Education", "Bachelor's in Mechatronics Engineering, Escola Politécnica da USP, 2018-2023"),
 )
