@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guilherme Monteiro - Portfolio</title>
+<meta name="description" content="Product-oriented technical leader. Agentic and computer-vision projects with problem, build, measured result and limits.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>Guilherme Monteiro</h1><p class="sub">Santos, São Paulo, Brazil. Remote.</p>
+<p class="lead">Product- and client-oriented technical leader. I talk to the client, design the product and build it end to end. Current focus: agentic systems and computer vision, from MCP tools to real-time GPU inference.</p>
+<p class="contact"><a href="mailto:guilhermeromonteiro@gmail.com">guilhermeromonteiro@gmail.com</a><a href="https://www.linkedin.com/in/grmonteiro">LinkedIn</a><a href="https://github.com/guilherme-r-monteiro">GitHub</a></p></header>
+<main><section><h2>Agentic and MCP</h2><p class="group-note">Agent tooling and the evaluation that shows whether it works.</p><div class="grid"><article class="card"><h3>vision-agent-mcp</h3><span class="tag">MCP</span><span class="tag">Python</span><span class="tag">ONNX Runtime</span><span class="tag">evaluation</span><dl>
+<dt>Problem</dt><dd>An LLM agent needs computer-vision tools, and the quality of the tool descriptions decides how well it uses them.</dd>
+<dt>What was built</dt><dd>An MCP server with five tools (list, detect, count, summarize and compare images) over a YOLOv8n ONNX detector, and a 36-case harness that scores the agent against COCO128 labels. Typed Python with 14 unit tests.</dd>
+<dt>Measured result</dt><dd>The agent scored 26/36 with the tools as first written. One sentence in two tool descriptions (retry once at lower confidence) lifted it to 28/36. The detector alone scored 26/36.</dd>
+<dt>Limits</dt><dd>36 cases and one run per setting, so the gain is a signal and not proof. The detector was trained on COCO images, so absolute numbers are optimistic. The README lists two evaluation flaws found and fixed.</dd>
+<dt>Link</dt><dd><a href="https://github.com/guilherme-r-monteiro/vision-agent-mcp">github.com/guilherme-r-monteiro/vision-agent-mcp</a></dd></dl></article><article class="card"><h3>Multi-agent engineering workflow</h3><span class="tag">agents</span><span class="tag">supervision</span><dl>
+<dt>Problem</dt><dd>Several projects run at the same time and one person cannot supervise every task by hand.</dd>
+<dt>What was built</dt><dd>A daily workflow with leads, workers, supervision and decision routing, used to deliver across the projects on this page.</dd>
+<dt>Measured result</dt><dd>Used every working day on real delivery.</dd>
+<dt>Limits</dt><dd>Internal tooling. It has no public repository and no benchmark.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>HelperBot</h3><span class="tag">reinforcement learning</span><span class="tag">PyTorch</span><span class="tag">ONNX</span><dl>
+<dt>Problem</dt><dd>Play KeyForge, a game with hidden information, a large action space and no clean search tree.</dd>
+<dt>What was built</dt><dd>An AlphaZero-style self-play agent (MCTS plus a learned policy and value network) that plays through the open-source keyteki engine. Hexagonal layers across Python training and Node.js inference. 13 architecture decision records, a PRD and the full task tree are committed with the code.</dd>
+<dt>Measured result</dt><dd>Training and inference run end to end through the game engine.</dd>
+<dt>Limits</dt><dd>Independent project. No published win-rate benchmark.</dd>
+<dt>Link</dt><dd><a href="https://github.com/guilherme-r-monteiro/helper-bot">github.com/guilherme-r-monteiro/helper-bot</a></dd></dl></article></div></section><section><h2>Computer vision and inference</h2><p class="group-note">Models, pipelines and the platforms around them.</p><div class="grid"><article class="card"><h3>Real-time GPU vision pipeline</h3><span class="tag">DeepStream</span><span class="tag">TensorRT</span><span class="tag">architecture</span><dl>
+<dt>Problem</dt><dd>Existing detection services were single-purpose and fragmented, and each new use case needed a new service.</dd>
+<dt>What was built</dt><dd>Led the architecture of a next-generation pipeline: multi-stream decode, batched inference, concurrency model, service boundaries and an incremental migration path. Consolidated the services into one configurable inference layer behind a minimal shared contract. Tradeoffs are recorded as architecture decision records.</dd>
+<dt>Measured result</dt><dd>A lean edge camera runtime measured about 31 MB of extra memory per additional FHD camera against a 250 MB budget, with a design target of at least 9 concurrent FHD cameras per x86_64 host.</dd>
+<dt>Limits</dt><dd>Company work. Numbers are from design and measurement on the team's own hardware.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>PPE detection for drilling operations</h3><span class="tag">YOLOv8</span><span class="tag">fine-tuning</span><span class="tag">safety</span><dl>
+<dt>Problem</dt><dd>Rig operations need automatic monitoring of personal protective equipment.</dd>
+<dt>What was built</dt><dd>Fine-tuned detection models on annotated drill-floor data and wired alert emission into the platform. Added LLM-based validation of safety-equipment alerts.</dd>
+<dt>Measured result</dt><dd>LLM validation cut false positives by over 95%, at the cost of one Gemini inference per alert.</dd>
+<dt>Limits</dt><dd>Company work. Client details are not published.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>Oil-spill crisis-management platform</h3><span class="tag">segmentation</span><span class="tag">detection</span><span class="tag">AWS</span><dl>
+<dt>Problem</dt><dd>Offshore clients need to see spill boundaries and nearby vessels, people and fauna to coordinate a response.</dd>
+<dt>What was built</dt><dd>An end-to-end platform: instance segmentation for spill boundaries, object detection for vessels, people and fauna, and an operational coordination interface on AWS.</dd>
+<dt>Measured result</dt><dd>Delivered to offshore clients.</dd>
+<dt>Limits</dt><dd>Company work. No public metrics.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>Facial-expression effort model</h3><span class="tag">CNN</span><span class="tag">transfer learning</span><dl>
+<dt>Problem</dt><dd>Estimate effort level in physical activity from facial expressions with little data.</dd>
+<dt>What was built</dt><dd>A convolutional network with transfer learning, data augmentation and data cleaning (2022-2023).</dd>
+<dt>Measured result</dt><dd>Over 95% accuracy on low data with no overfitting.</dd>
+<dt>Limits</dt><dd>Small dataset. Not validated on new subjects.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article></div></section><section><h2>Data and backend</h2><p class="group-note">Services, data stores and automation.</p><div class="grid"><article class="card"><h3>Electoral-analytics backend</h3><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">BigQuery</span><span class="tag">GCP</span><dl>
+<dt>Problem</dt><dd>An analytics platform needed a backend over public electoral and census data.</dd>
+<dt>What was built</dt><dd>The whole backend: a FastAPI service over BigQuery data, a PostgreSQL store with Alembic migrations, JWT authentication, rate limiting, transactional email, Docker and GCP deployment, and a test suite.</dd>
+<dt>Measured result</dt><dd>About 175 commits over four months as a freelance engineer.</dd>
+<dt>Limits</dt><dd>Client project. The code is private.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>Contract-first Python services</h3><span class="tag">AsyncAPI</span><span class="tag">Pydantic</span><span class="tag">asyncio</span><dl>
+<dt>Problem</dt><dd>Services drift apart when their contracts live only in code.</dd>
+<dt>What was built</dt><dd>Typed services built on AsyncAPI and JSON Schema contracts with generated Pydantic v2 models. A zone-evaluation library on hexagonal architecture, released next to its predecessor so consumers could migrate without a coordinated cutover.</dd>
+<dt>Measured result</dt><dd>Consumers migrated without a coordinated cutover.</dd>
+<dt>Limits</dt><dd>Company work.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>People-analytics automation</h3><span class="tag">Power Platform</span><span class="tag">SQL</span><span class="tag">LGPD</span><dl>
+<dt>Problem</dt><dd>HCM data distribution took a week of manual work and access control had to meet LGPD.</dd>
+<dt>What was built</dt><dd>Automated the distribution flow, built access-control applications for HCM data and attrition dashboards with sentiment analysis of free-text answers.</dd>
+<dt>Measured result</dt><dd>Distribution went from a week of manual work to immediate.</dd>
+<dt>Limits</dt><dd>Earlier career work at Braskem.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article></div></section><section><h2>Delivery and management</h2><p class="group-note">Client interface, product design and project leadership.</p><div class="grid"><article class="card"><h3>Forward Deployed Engineer, drilling client</h3><span class="tag">client-facing</span><span class="tag">product design</span><span class="tag">hardware</span><dl>
+<dt>Problem</dt><dd>A drilling client needed a monitoring product delivered end to end, on site, abroad.</dd>
+<dt>What was built</dt><dd>Led client interaction with the operations teams. Designed an after-action review product from requirements to Figma, then built its frontend and backend. Drove the target architecture (site-scoped rules, an edge runtime that closes the loop with no cloud link, a cloud control plane) with 43 platform requirements traced to design elements. Installed and commissioned camera, recorder and edge-box hardware at the rig.</dd>
+<dt>Measured result</dt><dd>Five months on site abroad, in two stints in 2026.</dd>
+<dt>Limits</dt><dd>Company work. Client details are not published.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>Project Manager, maritime monitoring</h3><span class="tag">roadmap</span><span class="tag">delivery</span><dl>
+<dt>Problem</dt><dd>A vessel-based monitoring line needed a roadmap and delivery across onboard detection, a crew application and shore-side services.</dd>
+<dt>What was built</dt><dd>Ran the roadmap and delivery. Delivered person and vessel detection with live inference on onboard video, and traced and fixed the model-format and GPU-memory defects that blocked it. Drove the bridge application work.</dd>
+<dt>Measured result</dt><dd>Live onboard inference delivered.</dd>
+<dt>Limits</dt><dd>Company work. Client details are not published.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article><article class="card"><h3>Railway false-alert analysis</h3><span class="tag">analysis</span><span class="tag">architecture</span><dl>
+<dt>Problem</dt><dd>A railway obstruction monitor produced too many false alerts.</dd>
+<dt>What was built</dt><dd>Analysed 67,000 alert thumbnails and showed that 21 of 119 camera scenes produced 92% of false alerts. Recommended a per-scene temporal model over the per-frame classifier. Managed the developers.</dd>
+<dt>Measured result</dt><dd>92% of false alerts traced to 21 of 119 scenes.</dd>
+<dt>Limits</dt><dd>Company work. The recommendation is a design choice and was not proven in this analysis.</dd>
+<dt>Link</dt><dd>Private company work. No public repository.</dd></dl></article></div></section></main>
+<footer>Each card states the problem, what was built, the measured result and the limits. Company work is described at the level of the public resume, without confidential detail.</footer>
+</body></html>
