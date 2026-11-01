@@ -1,0 +1,208 @@
+[
+ {
+  "type": "Agentic and MCP",
+  "title": "vision-agent-mcp",
+  "tags": [
+   "MCP",
+   "Python",
+   "ONNX Runtime",
+   "evaluation"
+  ],
+  "problem": "An LLM agent needs computer-vision tools, and the quality of the tool descriptions decides how well it uses them.",
+  "built": "An MCP server with five tools (list, detect, count, summarize and compare images) over a YOLOv8n ONNX detector, and a 36-case harness that scores the agent against COCO128 labels. Typed Python with 14 unit tests.",
+  "result": "The agent scored 26/36 with the tools as first written. One sentence in two tool descriptions (retry once at lower confidence) lifted it to 28/36. The detector alone scored 26/36.",
+  "limits": "36 cases and one run per setting, so the gain is a signal and not proof. The detector was trained on COCO images, so absolute numbers are optimistic. The README lists two evaluation flaws found and fixed.",
+  "repo": "https://github.com/guilherme-r-monteiro/vision-agent-mcp",
+  "status": "public",
+  "headline": "26/36 → 28/36"
+ },
+ {
+  "type": "Agentic and MCP",
+  "title": "Multi-agent engineering workflow",
+  "tags": [
+   "agents",
+   "supervision"
+  ],
+  "problem": "Several projects run at the same time and one person cannot supervise every task by hand.",
+  "built": "A daily workflow with leads, workers, supervision and decision routing, used to deliver across the projects on this page.",
+  "result": "Used every working day on real delivery.",
+  "limits": "Internal tooling. It has no public repository and no benchmark.",
+  "repo": null,
+  "status": "company",
+  "headline": "daily use"
+ },
+ {
+  "type": "Agentic and MCP",
+  "title": "HelperBot",
+  "tags": [
+   "reinforcement learning",
+   "PyTorch",
+   "ONNX"
+  ],
+  "problem": "Play KeyForge, a game with hidden information, a large action space and no clean search tree.",
+  "built": "An AlphaZero-style self-play agent (MCTS plus a learned policy and value network) that plays through the open-source keyteki engine. Hexagonal layers across Python training and Node.js inference. 13 architecture decision records, a PRD and the full task tree are committed with the code.",
+  "result": "Training and inference run end to end through the game engine.",
+  "limits": "Independent project. No published win-rate benchmark.",
+  "repo": "https://github.com/guilherme-r-monteiro/helper-bot",
+  "status": "public",
+  "headline": "13 ADRs"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "Real-time GPU vision pipeline",
+  "tags": [
+   "DeepStream",
+   "TensorRT",
+   "architecture"
+  ],
+  "problem": "Existing detection services were single-purpose and fragmented, and each new use case needed a new service.",
+  "built": "Led the architecture of a next-generation pipeline: multi-stream decode, batched inference, concurrency model, service boundaries and an incremental migration path. Consolidated the services into one configurable inference layer behind a minimal shared contract. Tradeoffs are recorded as architecture decision records.",
+  "result": "A lean edge camera runtime measured about 31 MB of extra memory per additional FHD camera against a 250 MB budget, with a design target of at least 9 concurrent FHD cameras per x86_64 host.",
+  "limits": "Company work. Numbers are from design and measurement on the team's own hardware.",
+  "repo": null,
+  "status": "company",
+  "headline": "~31 MB per camera"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "PPE detection for drilling operations",
+  "tags": [
+   "YOLOv8",
+   "fine-tuning",
+   "safety"
+  ],
+  "problem": "Rig operations need automatic monitoring of personal protective equipment.",
+  "built": "Fine-tuned detection models on annotated drill-floor data and wired alert emission into the platform. Added LLM-based validation of safety-equipment alerts.",
+  "result": "LLM validation cut false positives by over 95%, at the cost of one Gemini inference per alert.",
+  "limits": "Company work. Client details are not published.",
+  "repo": null,
+  "status": "company",
+  "headline": "-95% false alerts"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "Oil-spill crisis-management platform",
+  "tags": [
+   "segmentation",
+   "detection",
+   "AWS"
+  ],
+  "problem": "Offshore clients need to see spill boundaries and nearby vessels, people and fauna to coordinate a response.",
+  "built": "An end-to-end platform: instance segmentation for spill boundaries, object detection for vessels, people and fauna, and an operational coordination interface on AWS.",
+  "result": "Delivered to offshore clients.",
+  "limits": "Company work. No public metrics.",
+  "repo": null,
+  "status": "company",
+  "headline": "end to end"
+ },
+ {
+  "type": "Computer vision and inference",
+  "title": "Facial-expression effort model",
+  "tags": [
+   "CNN",
+   "transfer learning"
+  ],
+  "problem": "Estimate effort level in physical activity from facial expressions with little data.",
+  "built": "A convolutional network with transfer learning, data augmentation and data cleaning (2022-2023).",
+  "result": "Over 95% accuracy on low data with no overfitting.",
+  "limits": "Small dataset. Not validated on new subjects.",
+  "repo": null,
+  "status": "company",
+  "headline": ">95% accuracy"
+ },
+ {
+  "type": "Data and backend",
+  "title": "Electoral-analytics backend",
+  "tags": [
+   "FastAPI",
+   "PostgreSQL",
+   "BigQuery",
+   "GCP"
+  ],
+  "problem": "An analytics platform needed a backend over public electoral and census data.",
+  "built": "The whole backend: a FastAPI service over BigQuery data, a PostgreSQL store with Alembic migrations, JWT authentication, rate limiting, transactional email, Docker and GCP deployment, and a test suite.",
+  "result": "About 175 commits over four months as a freelance engineer.",
+  "limits": "Client project. The code is private.",
+  "repo": null,
+  "status": "company",
+  "headline": "~175 commits"
+ },
+ {
+  "type": "Data and backend",
+  "title": "Contract-first Python services",
+  "tags": [
+   "AsyncAPI",
+   "Pydantic",
+   "asyncio"
+  ],
+  "problem": "Services drift apart when their contracts live only in code.",
+  "built": "Typed services built on AsyncAPI and JSON Schema contracts with generated Pydantic v2 models. A zone-evaluation library on hexagonal architecture, released next to its predecessor so consumers could migrate without a coordinated cutover.",
+  "result": "Consumers migrated without a coordinated cutover.",
+  "limits": "Company work.",
+  "repo": null,
+  "status": "company",
+  "headline": "no cutover"
+ },
+ {
+  "type": "Data and backend",
+  "title": "People-analytics automation",
+  "tags": [
+   "Power Platform",
+   "SQL",
+   "LGPD"
+  ],
+  "problem": "HCM data distribution took a week of manual work and access control had to meet LGPD.",
+  "built": "Automated the distribution flow, built access-control applications for HCM data and attrition dashboards with sentiment analysis of free-text answers.",
+  "result": "Distribution went from a week of manual work to immediate.",
+  "limits": "Earlier career work at Braskem.",
+  "repo": null,
+  "status": "company",
+  "headline": "1 week → instant"
+ },
+ {
+  "type": "Delivery and management",
+  "title": "Forward Deployed Engineer, drilling client",
+  "tags": [
+   "client-facing",
+   "product design",
+   "hardware"
+  ],
+  "problem": "A drilling client needed a monitoring product delivered end to end, on site, abroad.",
+  "built": "Led client interaction with the operations teams. Designed an after-action review product from requirements to Figma, then built its frontend and backend. Drove the target architecture (site-scoped rules, an edge runtime that closes the loop with no cloud link, a cloud control plane) with 43 platform requirements traced to design elements. Installed and commissioned camera, recorder and edge-box hardware at the rig.",
+  "result": "Five months on site abroad, in two stints in 2026.",
+  "limits": "Company work. Client details are not published.",
+  "repo": null,
+  "status": "company",
+  "headline": "5 months on site"
+ },
+ {
+  "type": "Delivery and management",
+  "title": "Project Manager, maritime monitoring",
+  "tags": [
+   "roadmap",
+   "delivery"
+  ],
+  "problem": "A vessel-based monitoring line needed a roadmap and delivery across onboard detection, a crew application and shore-side services.",
+  "built": "Ran the roadmap and delivery. Delivered person and vessel detection with live inference on onboard video, and traced and fixed the model-format and GPU-memory defects that blocked it. Drove the bridge application work.",
+  "result": "Live onboard inference delivered.",
+  "limits": "Company work. Client details are not published.",
+  "repo": null,
+  "status": "company",
+  "headline": "live onboard inference"
+ },
+ {
+  "type": "Delivery and management",
+  "title": "Railway false-alert analysis",
+  "tags": [
+   "analysis",
+   "architecture"
+  ],
+  "problem": "A railway obstruction monitor produced too many false alerts.",
+  "built": "Analysed 67,000 alert thumbnails and showed that 21 of 119 camera scenes produced 92% of false alerts. Recommended a per-scene temporal model over the per-frame classifier. Managed the developers.",
+  "result": "92% of false alerts traced to 21 of 119 scenes.",
+  "limits": "Company work. The recommendation is a design choice and was not proven in this analysis.",
+  "repo": null,
+  "status": "company",
+  "headline": "92% from 21 of 119 scenes"
+ }
+]
