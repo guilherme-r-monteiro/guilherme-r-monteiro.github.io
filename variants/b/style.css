@@ -1,0 +1,14 @@
+:root{--bg:#fff7e6;--ink:#111;--muted:#3d3d3d;--accent:#e63946;--on-accent:#fff;--card:#fff;--line:#111;--bar:#fff7e6;--radius:0;--shadow:8px 8px 0 #111;--font:Georgia,"Times New Roman",serif;--display:"Arial Black",Impact,system-ui,sans-serif;--photo-radius:0}
+.bar{border-bottom:3px solid #111}
+.hero h1{font-size:clamp(2.2rem,7vw,4.8rem);text-transform:uppercase;letter-spacing:-.03em}
+.hero-inner{max-width:60rem}
+.hero::after{content:"";position:absolute;right:0;top:6%;width:clamp(60px,12vw,150px);aspect-ratio:1;background:#ffd23f;border:4px solid #111;border-radius:50%;z-index:-1}
+.support{color:var(--ink)}
+.btn{border:3px solid #111;color:#111;background:#fff}.btn.primary{background:var(--accent);color:#fff}
+.btn:hover{box-shadow:5px 5px 0 #111}
+.numbers li{border:3px solid #111;background:#ffd23f}.numbers strong{color:#111}.numbers span{color:#111}
+.card,.steps li{border:3px solid #111}.card:hover{box-shadow:var(--shadow)}
+.steps li:nth-child(odd){background:#bde0fe}
+h2{text-transform:uppercase;border-bottom:4px solid #111;padding-bottom:.3rem}
+.tag{border-color:#111;color:#111}.draft{background:#ffd23f;color:#111}
+.photo{border:3px solid #111}
